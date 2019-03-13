@@ -1,0 +1,51 @@
+nav ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0rem; }
+  nav ul li {
+    padding: 1rem; }
+    nav ul li a {
+      font-size: 1.25rem; }
+
+.forSend .form-control {
+  margin-bottom: 1rem; }
+
+.forSend .data {
+  text-align: center; }
+
+.forSend .butt {
+  text-align: center; }
+  .forSend .butt button {
+    font-size: 1.25rem; }
+
+.filt select {
+  margin-bottom: 1rem; }
+
+.filt .btt {
+  text-align: center; }
+  .filt .btt button {
+    font-size: 1.25rem; }
+
+body {
+  margin: 0px;
+  padding: 0px; }
+
+a:hover {
+  text-decoration: none; }
+
+li {
+  list-style-type: none; }
+
+hr {
+  border: 0.5px solid lightgray; }

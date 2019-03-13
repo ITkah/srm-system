@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test</title>
+	<link rel="icon" href="img/it.ico">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="wrapper" id="wrapper">
+
+	<header class="header" id="header">
+		<div class="container">
+			<nav>
+				<ul>
+					<li><a href="#" data-toggle="modal" data-target="#AddWorker">Добавить сотрудника</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#Filter">Фильтр</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	
+	<main class="main" id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<table class="table">
+		                <thead>
+		                    <tr>
+		                        <th scope="col">#</th>
+		                        <th scope="col">Должность</th>
+		                        <th scope="col">ФИО</th>
+		                        <th scope="col">
+		                            Дата рождения
+		                            <br>
+		                            (гг-мм-дд)
+		                        </th>
+		                        <th scope="col">
+		                            Дата принятия на работу
+		                            <br>
+		                            (гг-мм-дд)
+		                        </th>
+		                        <th scope="col">Подразделение</th>
+		                        <th scope="col">Примечание</th>
+		                    </tr>
+		                </thead>
+		                <tbody id="json">
+		                </tbody>
+		            </table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+<footer class="footer" id="footer"></footer>
+
+<div class="modal fade" id="AddWorker" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Добавить сотрудника</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       	<form action="php/logic.php" method="POST" id="formAddUser" class="forSend">
+
+       		<div class="col-sm-12">
+	            <select name="position" id="" required="" class="form-control">
+	                <option disabled="" selected="">Position</option>
+	                <option value="Worker">
+	                    Worker
+	                </option>
+	                <option value="PManager">
+	                    PManager
+	                </option>
+	                <option value="other">
+	                    Other
+	                </option>
+	            </select>
+        	</div>
+			
+			<div class="col-sm-12">
+	            <select name="subdivision" id="" required="" class="form-control">
+	                <option disabled="" selected="">Subdivision</option>
+	                <option value="Front-end">
+	                    Front-end
+	                </option>
+	                <option value="Back-end">
+	                    Back-end
+	                </option>
+	                <option value="HR">
+	                    HR
+	                </option>
+	            </select>
+	        </div>
+            
+            <div class="col-sm-12">
+	            <p class="data">
+	                <label for="firstname">Дата рождения: </label>
+	                <input type="date" name="birthday" required="">
+	            </p>
+			</div>
+
+			<div class="col-sm-12">
+	            <p class="data">
+	                <label for="firstname">В компаннии с: </label>
+	                <input type="date" name="dateWork" required="">
+	            </p>
+        	</div>
+			
+			<div class="col-sm-12">
+		      <input type="text" class="form-control" id="inputName" name="WorkName" placeholder="Имя" required="">
+		    </div>
+		    <div class="col-sm-12">
+		      <input type="text" class="form-control" id="inputLastName" name="WorkSurname" placeholder="Фамилия" required="">
+		    </div>
+		    <div class="col-sm-12">
+		      <input type="text" class="form-control" id="inputVeryLastName" name="WorkPatronymic" placeholder="Отчество" required="">
+		    </div>
+		    <div class="col-sm-12">
+		      <input type="text" class="form-control" id="inputSkills" name="WorkSpell" placeholder="Примечание">
+		    </div>
+		    <div class="col-sm-12 butt">
+	            <button type="submit" id="btn" class="btn btn-primary">
+	                Oтправить
+	            </button>
+        	</div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+	
+
+<div class="modal fade" id="Filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Фильтр</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body filt">
+	      	<div class="forFilt" id="formFilter">
+
+		      	<div class="col-sm-12">
+			        <select name="position" id="position" required="" class="form-control">
+			            <option disabled="" selected="">Position</option>
+			            <option value="Worker">
+			                Worker
+			            </option>
+			            <option value="PManager">
+			                PManager
+			            </option>
+			            <option value="other">
+			                Other
+			            </option>
+			        </select>
+			    </div>
+	           
+		        <div class="col-sm-12">
+			            <select name="subdivision" id="subdivision" required="" class="form-control">
+			                <option disabled="" selected="">Subdivision</option>
+			                <option value="Front-end">
+			                    Front-end
+			                </option>
+			                <option value="Back-end">
+			                    Back-end
+			                </option>
+			                <option value="HR">
+			                    HR
+			                </option>
+			            </select>
+		        </div>
+
+	        <div class="col-sm-12 btt">
+	            <button class="btn btn-primary btt" id="sendFilter">
+	                Применить
+	            </button>
+	        </div>
+		</div>
+	
+       </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/js.js"></script>
+</body>
+</html>	
